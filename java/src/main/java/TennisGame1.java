@@ -6,17 +6,6 @@
  */
 public class TennisGame1 implements TennisGame {
 
-	private static final String LOVE = "Love";
-	private static final String FIFTEEN = "Fifteen";
-	private static final String THIRTY = "Thirty";
-	private static final String FORTY = "Forty";
-	private static String[] strPoints = { LOVE, FIFTEEN, THIRTY, FORTY };
-
-	private static final String ALL = "All";
-	private static final String DEUCE = "Deuce";
-	private static final String ADVANTAGE = "Advantage ";
-	private static final String WIN_FOR = "Win for ";
-
 	private int m_score1 = 0;
 	private int m_score2 = 0;
 	private String player1Name;
@@ -53,23 +42,23 @@ public class TennisGame1 implements TennisGame {
 		int tempScore = 0;
 		if (m_score1 == m_score2) {
 			if (m_score1 < 3) {
-				mStrScore = strPoints[m_score1] + "-" + ALL;
+				mStrScore = PointNames.STRPOINTS[m_score1] + "-" + PointNames.ALL;
 			} else {
-				mStrScore = DEUCE;
+				mStrScore = PointNames.DEUCE;
 			}
 		} else if (m_score1 >= 4 || m_score2 >= 4) {
 			int minusResult = m_score1 - m_score2;
 			if (minusResult == 1) {
-				mStrScore = ADVANTAGE + player1Name;
+				mStrScore = PointNames.ADVANTAGE + player1Name;
 			} else if (minusResult == -1) {
-				mStrScore = ADVANTAGE + player2Name;
+				mStrScore = PointNames.ADVANTAGE + player2Name;
 			} else if (minusResult >= 2) {
-				mStrScore = WIN_FOR + player1Name;
+				mStrScore = PointNames.WIN_FOR + player1Name;
 			} else {
-				mStrScore = WIN_FOR + player2Name;
+				mStrScore = PointNames.WIN_FOR + player2Name;
 			}
 		} else {
-			mStrScore = strPoints[m_score1] + "-" + strPoints[m_score2];
+			mStrScore = PointNames.STRPOINTS[m_score1] + "-" + PointNames.STRPOINTS[m_score2];
 		}
 	}
 }
