@@ -7,15 +7,18 @@ public class TennisGame1 implements TennisGame {
     private String player2Name;
 
     public TennisGame1(String player1Name, String player2Name) {
+    	// TODO: validazione: notNull, notEquals
         this.player1Name = player1Name;
         this.player2Name = player2Name;
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
+        if (player1Name.equals(playerName)) {
             m_score1 += 1;
-        else
+        }
+        else {
             m_score2 += 1;
+        }
     }
 
     public String getScore() {
